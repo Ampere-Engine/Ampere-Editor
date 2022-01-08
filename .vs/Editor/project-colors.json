@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c16e4b42-2000-484f-a4a6-eba3f5527f29": {
+      "ProjectGuid": "c16e4b42-2000-484f-a4a6-eba3f5527f29",
+      "DisplayName": "Ampere-Editor",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
