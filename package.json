@@ -1,56 +1,70 @@
 {
-  "name": "ampere-editor",
-  "version": "0.0.0",
-  "author": "Mateusz Słotwiński",
-  "main": "electron/electron.ts",
+  "name": "ampere",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview",
-    "electron": "wait-on tcp:3000 && cross-env IS_DEV=true electron .",
-    "electron:pack": "electron-builder --dir",
-    "electron:dev": "concurrently -k \"cross-env BROWSER=none yarn dev\" \"yarn electron\"",
-    "electron:builder": "electron-builder",
-    "build:for:electron": "vue-tsc --noEmit && cross-env ELECTRON=true vite build",
-    "app:build": "yarn build:for:electron && yarn electron:builder",
-    "lint": "eslint ./",
-    "format": "prettier --write \"src/**/*\""
+    "start:app": "vue-cli-service electron:serve",
+    "start:web": "vue-cli-service serve",
+    "build:vue": " tsc vue.config.ts && vue-cli-service build",
+    "build:electron": "vue-cli-service electron:build",
+    "lint": "vue-cli-service lint",
+    "format": "prettier ./ --write",
+    "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "vue-cli-service test:e2e",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps"
   },
-  "build": {
-    "appId": "com.ampere-engine",
-    "productName": "Ampere-Editor",
-    "copyright": "Copyright © 2021 ${author}",
-    "mac": {
-      "category": "public.app-category.utilities"
-    },
-    "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true
-    },
-    "files": [
-      "dist/**/*",
-      "electron/**/*"
-    ],
-    "directories": {
-      "buildResources": "assets",
-      "output": "dist_electron"
-    }
-  },
+  "main": "background.js",
   "dependencies": {
-    "vue": "^3.2.25"
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/vue-fontawesome": "^2.0.6",
+    "@kyvg/vue3-notification": "^2.3.4",
+    "axios": "^0.24.0",
+    "core-js": "^3.6.5",
+    "electron": "^16.0.6",
+    "i18n": "^0.13.4",
+    "js-cookie": "^3.0.1",
+    "jwt-decode": "^3.1.2",
+    "register-service-worker": "^1.7.1",
+    "vue": "^3.0.0",
+    "vue-i18n": "^9.1.9",
+    "vue-router": "^4.0.0-0",
+    "vue3-smooth-scroll": "^0.8.1",
+    "vuex": "^4.0.0-0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.0.0",
-    "concurrently": "^7.0.0",
-    "cross-env": "^7.0.3",
-    "electron": "^16.0.6",
-    "electron-builder": "^22.14.5",
-    "eslint": "^8.6.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.2.0",
-    "typescript": "^4.4.4",
-    "vite": "^2.7.2",
-    "vue-tsc": "^0.29.8",
-    "wait-on": "^6.0.0"
+    "@intlify/vue-i18n-loader": "^3.0.0",
+    "@types/electron-devtools-installer": "^2.2.0",
+    "@types/jest": "^24.0.19",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-e2e-cypress": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-pwa": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "@vue/test-utils": "^2.0.0-0",
+    "electron": "^13.0.0",
+    "electron-devtools-installer": "^3.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.0.0",
+    "node-sass": "^4.12.0",
+    "prettier": "^2.2.1",
+    "sass-loader": "^8.0.2",
+    "spectron": "15.0.0",
+    "typescript": "~4.1.5",
+    "vue-cli-plugin-electron-builder": "~2.1.1",
+    "vue-jest": "^5.0.0-0"
   }
 }
