@@ -80,7 +80,8 @@ const createWindow = async () => {
     minHeight: 680,
     icon: getAssetPath('icon.png'),
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true,
+      contextIsolation: false,
     },
   })
 
@@ -99,6 +100,19 @@ const createWindow = async () => {
 
   mainWindow.on('closed', () => {
     mainWindow = null
+  })
+
+  ipcMain.on('closeApp', () => {
+    if (mainWindow) mainWindow.close()
+  })
+  ipcMain.on('maxApp', () => {
+    if (mainWindow) {
+      if (mainWindow.isMaximized()) mainWindow.restore()
+      else mainWindow.maximize()
+    }
+  })
+  ipcMain.on('minApp', () => {
+    if (mainWindow) mainWindow.minimize()
   })
 
   const menuBuilder = new MenuBuilder(mainWindow)

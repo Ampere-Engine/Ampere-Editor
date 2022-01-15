@@ -6,6 +6,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'no-console': 'warn',
     'no-debugger': 'warn',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     'explicit-module-boundary-types': 'off',
     'prettier/prettier': [1, { endOfLine: 'auto' }, { usePrettierrc: true }],

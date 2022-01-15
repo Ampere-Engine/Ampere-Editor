@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Navbar, WindowButtons, WindowOptions, WindowTitle } from './Navbar.c'
+import { close, max, min } from './Navbar.s'
 
 export default () => {
   return (
@@ -11,13 +12,13 @@ export default () => {
       </WindowOptions>
       <WindowTitle>Ampere Engine</WindowTitle>
       <WindowButtons>
-        <div>
+        <div onClick={min}>
           <FontAwesomeIcon icon={['far', 'window-minimize']} />
         </div>
-        <div>
+        <div onClick={max}>
           <FontAwesomeIcon icon={['far', 'square']} />
         </div>
-        <div>❌</div>
+        <div onClick={close}>❌</div>
       </WindowButtons>
     </Navbar>
   )
