@@ -1,7 +1,7 @@
 /**
  * Base webpack config used across other specific configs
  */
-
+import path from 'path'
 import webpack from 'webpack';
 import webpackPaths from './webpack.paths';
 import { dependencies as externals } from '../../release/app/package.json';
@@ -41,6 +41,10 @@ const configuration: webpack.Configuration = {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
     modules: [webpackPaths.srcPath, 'node_modules'],
+    alias: {
+      '@': path.resolve(__dirname, '../../src/renderer/'),
+      '>>': path.resolve(__dirname, '../../assets/'),
+    },
   },
 
   plugins: [

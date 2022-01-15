@@ -1,9 +1,5 @@
 module.exports = {
-  extends: [
-    'erb', 
-    'plugin:prettier/recommended',
-    'eslint:recommended',
-  ],
+  extends: ['erb', 'plugin:prettier/recommended', 'eslint:recommended'],
   rules: {
     'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'error',
@@ -33,4 +29,4 @@ module.exports = {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
   },
-};
+}

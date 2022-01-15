@@ -21,5 +21,9 @@
     "allowJs": true,
     "outDir": "release/app/dist"
   },
-  "exclude": ["test", "release/build", "release/app/dist", ".erb/dll"]
+  "exclude": ["test", "release/build", "release/app/dist", ".erb/dll"],
+  "paths": {
+    "@/*": ["src/renderer/*"],
+    ">>/*": ["assets/*"]
+  },
 }
