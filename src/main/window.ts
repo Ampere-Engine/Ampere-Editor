@@ -12,7 +12,7 @@ import registerEvents from './events'
 import { isDevelopment } from './config'
 import onRegister from './onRegister'
 
-let mainWindow: BrowserWindow | null = null
+let win: BrowserWindow | null = null
 
 onRegister()
 
@@ -29,7 +29,7 @@ const createWindow = async () => {
     return path.join(RESOURCES_PATH, ...paths)
   }
 
-  mainWindow = new BrowserWindow({
+  win = new BrowserWindow({
     show: false,
     frame: false,
     width: 1280,
@@ -43,41 +43,41 @@ const createWindow = async () => {
     },
   })
 
-  mainWindow.loadURL(resolveHtmlPath('index.html'))
+  win.loadURL(resolveHtmlPath('index.html'))
 
-  mainWindow.on('ready-to-show', () => {
-    if (!mainWindow) {
-      throw new Error('"mainWindow" is not defined')
+  win.on('ready-to-show', () => {
+    if (!win) {
+      throw new Error('"win" is not defined')
     }
     if (process.env.START_MINIMIZED) {
-      mainWindow.minimize()
+      win.minimize()
     } else {
-      mainWindow.show()
+      win.show()
     }
   })
 
-  mainWindow.on('closed', () => {
-    mainWindow = null
+  win.on('closed', () => {
+    win = null
   })
 
   ipcMain.on('closeApp', () => {
-    if (mainWindow) mainWindow.close()
+    if (win) win.close()
   })
   ipcMain.on('maxApp', () => {
-    if (mainWindow) {
-      if (mainWindow.isMaximized()) mainWindow.restore()
-      else mainWindow.maximize()
+    if (win) {
+      if (win.isMaximized()) win.restore()
+      else win.maximize()
     }
   })
   ipcMain.on('minApp', () => {
-    if (mainWindow) mainWindow.minimize()
+    if (win) win.minimize()
   })
 
-  const menuBuilder = new MenuBuilder(mainWindow)
+  const menuBuilder = new MenuBuilder(win)
   menuBuilder.buildMenu()
 
   // Open urls in the user's browser
-  mainWindow.webContents.on('new-window', (event, url) => {
+  win.webContents.on('new-window', (event, url) => {
     event.preventDefault()
     shell.openExternal(url)
   })
@@ -87,6 +87,6 @@ const createWindow = async () => {
   new AppUpdater()
 }
 
-registerEvents(app, mainWindow)
+registerEvents(app, win)
 
 export default createWindow

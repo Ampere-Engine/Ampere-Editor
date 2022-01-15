@@ -1,13 +1,13 @@
 import { ipcRenderer as ipc } from 'electron'
 
 export const close = () => {
-  ipc.send('closeApp')
+  if (ipc) ipc.send('closeApp')
 }
 
 export const max = () => {
-  ipc.send('maxApp')
+  if (ipc) ipc.send('maxApp')
 }
 
 export const min = () => {
-  ipc.send('minApp')
+  if (ipc) ipc.send('minApp')
 }
