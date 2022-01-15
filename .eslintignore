@@ -1,7 +1,6 @@
 # Logs
 logs
 *.log
-dummy.scss
 
 # Runtime data
 pids
