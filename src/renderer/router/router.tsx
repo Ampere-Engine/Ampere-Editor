@@ -1,5 +1,5 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom'
-import Hello from '../components/Hello'
+import Home from '../views/Home'
 import Navbar from '../components/shared/Navbar'
 
 export default function App() {
@@ -8,7 +8,7 @@ export default function App() {
       <Navbar />
       <Router>
         <Routes>
-          <Route path="/" element={<Hello />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </Router>
     </div>
