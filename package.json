@@ -92,11 +92,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron-react-boilerplate/electron-react-boilerplate.git"
+    "url": "git+https://github.com/Ampere-Engine/Ampere-Editor.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues"
+    "url": "https://github.com/Ampere-Engine/Ampere-Editor/issues"
   },
   "keywords": [
     "electron",

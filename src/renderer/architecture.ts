@@ -8,7 +8,7 @@ component into several layers including:
     - styled-[C]omponents (App.c.ts)
     - [S]ervices (App.s.ts)
     - [R]ender (App.tsx)
-    - types (App.t.ts)
+    - [T]ypes (App.t.ts)
 and maybe more in future.
 
 Common files such as router.ts, or index.ts are are lowercase,

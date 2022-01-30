@@ -17,24 +17,24 @@ export const Header = styled.div`
   text-transform: uppercase;
   color: ${theme.black};
   font-weight: 600;
-  line-height: 80px;
+  line-height: 60px;
   user-select: none;
 `
 
 export const Logo = styled.div`
   margin: 20px;
-  width: 250px;
-  height: 250px;
+  width: 210px;
+  height: 210px;
   background-image: url(${logo_img});
   background-size cover;
 `
 
 export const Ampere = styled.div`
-  font-size: 100px;
+  font-size: 80px;
   animation: ${rainbow} 7s linear infinite;
 `
 
 export const Engine = styled.div`
-  font-size: 70px;
+  font-size: 55px;
   animation: ${rainbow} 7s linear infinite;
 `
